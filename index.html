@@ -448,28 +448,6 @@
             padding-left: 25px;
         }
         
-        /* Enhanced Background Image Styles */
-        .bg-image {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-        }
-        
-        .bg-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 43, 74, 0.85);
-        }
-        
-        .bg-image-content {
-            position: relative;
-            z-index: 1;
-        }
-        
         .about-section {
             background-color: white;
             position: relative;
@@ -530,21 +508,6 @@
         
         .footer-bg {
             background: var(--dark);
-        }
-        
-        /* Improved text contrast */
-        .bg-image-content .section-title,
-        .bg-image-content p,
-        .bg-image-content h4,
-        .bg-image-content li {
-            color: white;
-        }
-        
-        /* Breadcrumb */
-        .breadcrumb {
-            background-color: transparent;
-            padding: 0.75rem 0;
-            margin-bottom: 1rem;
         }
         
         /* FAQ Section */
@@ -693,6 +656,9 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             animation: scaleIn 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         @keyframes scaleIn {
@@ -701,8 +667,11 @@
         }
         
         .popup-content img {
-            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
             height: auto;
+            width: auto;
+            object-fit: contain;
             display: block;
         }
         
@@ -771,45 +740,6 @@
             border: none;
             padding: 20px;
             font-weight: 600;
-        }
-        
-        /* Expiration Message Styles */
-        .expiration-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 43, 74, 0.95);
-            z-index: 99999;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-        
-        .expiration-content {
-            background: white;
-            color: var(--dark);
-            padding: 50px;
-            border-radius: 20px;
-            max-width: 600px;
-            margin: 20px;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .expiration-content h2 {
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .expiration-content .contact-info {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            margin: 25px 0;
         }
         
         /* NEW: Improved subject advice section */
@@ -885,46 +815,6 @@
             line-height: 30px;
             margin-right: 15px;
             font-weight: bold;
-        }
-        
-        /* Live events section */
-        .live-events-section {
-            background: var(--light-teal);
-        }
-        
-        .event-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            height: 100%;
-            border-left: 4px solid var(--secondary);
-        }
-        
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .event-date {
-            display: inline-block;
-            background: var(--gradient-secondary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .event-location {
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-        
-        .event-location i {
-            color: var(--primary);
-            margin-right: 8px;
         }
         
         /* Custom bullet points */
@@ -1069,11 +959,6 @@
                 max-width: 130px;
             }
             
-            .expiration-content {
-                padding: 30px;
-                margin: 15px;
-            }
-            
             .stats-number {
                 font-size: 2.8rem;
             }
@@ -1105,22 +990,6 @@
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-chevron-up"></i>
     </a>
-
-    <!-- Expiration Overlay -->
-    <div class="expiration-overlay" id="expirationOverlay">
-        <div class="expiration-content">
-            <h2><i class="fas fa-exclamation-triangle me-2"></i>Website Access Expired</h2>
-            <p class="lead">This website is no longer accessible as the development period has ended.</p>
-            <p>For continued access and support, please contact:</p>
-            <div class="contact-info">
-                <h4>SDD Tech Support</h4>
-                <p><i class="fas fa-phone me-2"></i> <strong>Phone:</strong> 065 509 2417</p>
-                <p><i class="fas fa-envelope me-2"></i> <strong>Email:</strong> sddtech@example.com</p>
-                <p><i class="fab fa-whatsapp me-2"></i> <strong>WhatsApp:</strong> 065 509 2417</p>
-            </div>
-            <p class="small text-muted mt-3">Website expired on: <strong>November 21, 2025</strong></p>
-        </div>
-    </div>
 
     <!-- Popup Modal -->
     <div class="popup-modal" id="popupModal">
@@ -1160,9 +1029,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#admissions">Admissions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#events">Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#faq">FAQ</a>
@@ -1549,69 +1415,7 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="card course-card mt-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-body">
-                            <h4 class="card-title text-primary">Application Deadlines</h4>
-                            <div class="mb-3">
-                                <h6 class="text-secondary">January Intake</h6>
-                                <p class="mb-1">Early Application: 30 November</p>
-                                <p class="mb-1">Final Deadline: 15 December</p>
-                            </div>
-                            <div class="mb-3">
-                                <h6 class="text-secondary">June Intake</h6>
-                                <p class="mb-1">Early Application: 30 April</p>
-                                <p class="mb-1">Final Deadline: 31 May</p>
-                            </div>
-                            <div class="alert alert-primary mt-3">
-                                <i class="fas fa-info-circle me-2"></i>
-                                <strong>Early applications</strong> receive priority consideration and may qualify for registration fee discounts.
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Events Section -->
-    <section id="events" class="py-5 live-events-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Upcoming Events</h2>
-            <p class="text-center mb-5 lead" data-aos="fade-up" data-aos-delay="100">Join our upcoming events to learn more about our programs</p>
-            
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="event-card">
-                        <div class="event-date">28-29 Nov 2025</div>
-                        <h4>Open Day Admissions</h4>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Main Campus, Fourways</p>
-                        <p>Visit our campus, meet our lecturers, and get all your questions answered about our programs and admission process.</p>
-                        <a href="#contact" class="btn btn-primary">RSVP Now</a>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="event-card">
-                        <div class="event-date">5 Dec 2025</div>
-                        <h4>Career Guidance Workshop</h4>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Online & On-Campus</p>
-                        <p>Not sure which career path to take? Join our career guidance workshop and get expert advice on choosing the right program.</p>
-                        <a href="#contact" class="btn btn-primary">Register</a>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="event-card">
-                        <div class="event-date">15 Jan 2026</div>
-                        <h4>Matric Rewrite Info Session</h4>
-                        <p class="event-location"><i class="fas fa-map-marker-alt"></i> Online</p>
-                        <p>Learn how our Matric Rewrite program can help you improve your results and open doors to better opportunities.</p>
-                        <a href="#contact" class="btn btn-primary">Join Session</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4" data-aos="fade-up">
-                <a href="#contact" class="btn btn-secondary">View All Events</a>
             </div>
         </div>
     </section>
@@ -1833,7 +1637,6 @@
                         <li><a href="#about" class="text-light">About</a></li>
                         <li><a href="#courses" class="text-light">Courses</a></li>
                         <li><a href="#matric" class="text-light">Matric Rewrite</a></li>
-                        <li><a href="#events" class="text-light">Events</a></li>
                         <li><a href="#contact" class="text-light">Contact</a></li>
                     </ul>
                 </div>
@@ -1895,23 +1698,6 @@
             once: true,
             offset: 100
         });
-
-        // Website Expiration Check
-        function checkWebsiteExpiration() {
-            // Set expiration date: 30 days from October 22, 2025
-            const expirationDate = new Date('2025-11-21T23:59:59'); // November 21, 2025
-            const currentDate = new Date();
-            
-            // Check if current date is after expiration date
-            if (currentDate > expirationDate) {
-                const overlay = document.getElementById('expirationOverlay');
-                if (overlay) {
-                    overlay.style.display = 'flex';
-                    // Disable all interactive elements
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-        }
 
         // Initialize EmailJS with YOUR ACTUAL CREDENTIALS
         (function() {
@@ -2027,9 +1813,6 @@
 
         // Application form submission
         document.addEventListener('DOMContentLoaded', function() {
-            // Check website expiration first
-            checkWebsiteExpiration();
-
             // Initialize counters
             initCounters();
 
